@@ -12,9 +12,9 @@
           class="pl-5"
           id="input-1"
           v-model="form.email"
-          type="password"
+          type="email"
           required
-          placeholder="Enter password"
+          placeholder="Enter email"
         ></b-form-input>
       </b-input-group-append>
 
@@ -27,7 +27,7 @@
         <b-form-input
           class="pl-5"
           id="input-1"
-          v-model="form.email"
+          v-model="form.password"
           type="password"
           required
           placeholder="Enter password"
