@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <b-container fluid>
-      &copy; 2020 Copyright: BeatCare
+      <p class="heading">&copy; 2020 Copyright: BeatCare </p>
     </b-container>
   </div>
 </template>

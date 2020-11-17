@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
+import Home from '@/components/TheHome'
+import Login from '@/components/TheLogin'
+import Register from '@/components/TheRegister'
+import Help from '@/components/TheHelp'
+import TechnicalDocument from '@/components/TechnicalDocument'
 
 Vue.use(Router)
 
@@ -22,6 +24,16 @@ export default new Router({
     	path: '/sign-up',
     	name: 'Register',
     	component: Register
+    },
+    {
+      path: '/help',
+      name: 'Help',
+      component: Help
+    },
+    {
+      path: '/technical-document',
+      name: 'TechnicalDocument',
+      component: TechnicalDocument
     }
   ],
   mode: 'history'
