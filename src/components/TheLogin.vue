@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h1 class="text-center">Login</h1>
-    <b-form @submit="onSubmit">
+    <b-form @submit.prevent="onSubmit">
       <b-input-group-append class="mt-4 align-items-center">
         <b-icon
           icon="envelope"
@@ -11,7 +11,7 @@
         <b-form-input
           class="pl-5"
           id="input-1"
-          v-model="form.email"
+          v-model="user.email"
           type="email"
           required
           placeholder="Enter email"
@@ -27,7 +27,7 @@
         <b-form-input
           class="pl-5"
           id="input-1"
-          v-model="form.password"
+          v-model="user.password"
           type="password"
           required
           placeholder="Enter password"
@@ -42,19 +42,26 @@
 </template>
 
 <script>
+import axios from 'axios';
+import authService from '@/services/authService';
 export default {
   name: 'Login',
   data() {
     return {
-      form: {
+      user: {
         email: "",
         password: ""
       }
     };
   },
   methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
+    onSubmit() {
+      authService.login(this.user).then(response => {
+
+      })
+      .catch(error => {
+        this.$router.push({name: 'Login'})
+      })
     },
     Register(evt) {
       this.$router.push('/sign-up');

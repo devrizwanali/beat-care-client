@@ -8,7 +8,7 @@ import TechnicalDocument from '@/components/TechnicalDocument'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/',
@@ -38,3 +38,21 @@ export default new Router({
   ],
   mode: 'history'
 })
+
+
+router.beforeEach((to, from, next) => {
+  const protectedRoutes = ['/dashboard'];
+  const loginRequired = protectedRoutes.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  // redirect to login page when user is not logged in
+  if (loginRequired && !loggedIn) {
+    alert('You need to login first!');
+    next('/login');
+  } else {
+    next();
+  }
+});
+
+
+export default router;
