@@ -1,25 +1,26 @@
 <template>
   <div class="footer">
     <b-container fluid>
-      <p class="heading">&copy; 2020 Copyright: BeatCare </p>
+      <p class="mt-2 heading">&copy; 2020 Copyright BeatCare</p>
     </b-container>
   </div>
 </template>
 <script>
-	export default {
-		name: 'footer'
-	}
+  export default {
+    name: 'Footer',
+  }
 </script>
 
 <style>
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: #3c4d69;
-  line-height: 60px;
-  box-shadow: rgb(238, 238, 238);
+  cursor: pointer;
+  height: 50px;
+  background: #3c4d69;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   text-align: center;
 }
 </style>

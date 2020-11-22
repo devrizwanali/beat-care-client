@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/TheHome'
 import Login from '@/components/TheLogin'
 import Register from '@/components/TheRegister'
-import Help from '@/components/TheHelp'
-import TechnicalDocument from '@/components/TechnicalDocument'
+import FAQs from '@/components/TheFAQs'
+import Dashboard from '@/components/TheDashboard'
 
 Vue.use(Router)
 
@@ -25,15 +25,16 @@ const router =  new Router({
     	name: 'Register',
     	component: Register
     },
+    ,
     {
-      path: '/help',
-      name: 'Help',
-      component: Help
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     },
     {
-      path: '/technical-document',
-      name: 'TechnicalDocument',
-      component: TechnicalDocument
+      path: '/faqs',
+      name: 'FAQs',
+      component: FAQs
     }
   ],
   mode: 'history'
@@ -43,16 +44,15 @@ const router =  new Router({
 router.beforeEach((to, from, next) => {
   const protectedRoutes = ['/dashboard'];
   const loginRequired = protectedRoutes.includes(to.path);
-  const loggedIn = localStorage.getItem('user');
+  const loggedIn = localStorage.getItem('token');
 
   // redirect to login page when user is not logged in
   if (loginRequired && !loggedIn) {
-    alert('You need to login first!');
+    alert('Please login!');
     next('/login');
   } else {
     next();
   }
 });
-
 
 export default router;

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h1 class="text-center">Login</h1>
-    <b-form @submit.prevent="onSubmit">
+    <b-form @submit.prevent="onLogin">
       <b-input-group-append class="mt-4 align-items-center">
         <b-icon
           icon="envelope"
@@ -42,8 +42,7 @@
 </template>
 
 <script>
-import axios from 'axios';
-import authService from '@/services/authService';
+import { mapActions } from 'vuex'
 export default {
   name: 'Login',
   data() {
@@ -55,12 +54,14 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      authService.login(this.user).then(response => {
-
+    ...mapActions(['login']),
+    onLogin() {
+      this.login(this.user)
+      .then(res => {
+        this.$router.push('/dashboard')
       })
       .catch(error => {
-        this.$router.push({name: 'Login'})
+        alert(error.response.data.message)
       })
     },
     Register(evt) {

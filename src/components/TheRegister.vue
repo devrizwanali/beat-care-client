@@ -1,10 +1,10 @@
 <template>
   <div class="login">
     <h1 class="text-center">Sign up</h1>
-    <b-form @submit="onSubmit">
+    <b-form @submit.prevent="onSignUp">
       <b-input-group-append class="mt-4">
         <b-form-input
-          v-model="form.firstName"
+          v-model="user.firstName"
           type="text"
           required
           placeholder="First name"
@@ -12,7 +12,7 @@
           >
         </b-form-input>
          <b-form-input
-          v-model="form.lastName"
+          v-model="user.lastName"
           type="text"
           required
           placeholder="Last name"
@@ -30,7 +30,7 @@
         <b-form-input
           class="pl-5"
           id="input-1"
-          v-model="form.email"
+          v-model="user.email"
           type="email"
           required
           placeholder="Enter email"
@@ -46,7 +46,7 @@
         <b-form-input
           class="pl-5"
           id="input-1"
-          v-model="form.password"
+          v-model="user.password"
           type="password"
           required
           placeholder="Enter password"
@@ -61,11 +61,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'Register',
   data() {
     return {
-      form: {
+      user: {
         email: "",
         password: "",
         firstName: "",
@@ -74,8 +75,15 @@ export default {
     };
   },
   methods: {
-    onSubmit(evt) {
-      evt.preventDefault();
+    ...mapActions(['register']),
+    onSignUp(evt) {
+      this.register(this.user)
+       .then(res => {
+          this.$router.push('/dashboard')
+       })
+       .catch(error => {
+          alert(error.response.data.message)
+       })
     },
     login() {
      this.$router.push({name: "Login"})
