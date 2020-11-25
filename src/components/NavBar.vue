@@ -5,10 +5,16 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <li class="nav-item" v-if="isLoggedIn">
-          <router-link 
+          <router-link
             :to="{ name: 'FAQs' }"
             class="heading nav-link"
           >Report</router-link>
+        </li>
+        <li class="nav-item" v-if="isLoggedIn">
+          <router-link 
+            :to="{ name: 'Dashboard' }"
+            class="heading nav-link"
+          >Dashboard</router-link>
         </li>
         <li class="nav-item" v-if="isLoggedIn">
           <span 

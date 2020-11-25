@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import NavBar from '@/components/TheNavBar';
+import NavBar from '@/components/NavBar';
 import TheFooter from '@/components/TheFooter';
 
 export default {
@@ -22,5 +22,9 @@ export default {
 <style>
 body {
   background: #f7fafc;
+}
+.card-center {
+  width: 50%;
+  margin: auto;
 }
 </style>

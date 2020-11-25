@@ -5,6 +5,9 @@ import Login from '@/components/TheLogin'
 import Register from '@/components/TheRegister'
 import FAQs from '@/components/TheFAQs'
 import Dashboard from '@/components/TheDashboard'
+import Create from '@/components/CreateBeatRate'
+import Edit from '@/components/EditBeatRate'
+import Details from '@/components/DetailsBeatRate'
 
 Vue.use(Router)
 
@@ -25,11 +28,25 @@ const router =  new Router({
     	name: 'Register',
     	component: Register
     },
-    ,
     {
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/create',
+      name: 'Create',
+      component: Create
+    },
+    {
+      path: '/edit',
+      name: 'Edit',
+      component: Edit
+    },
+    {
+      path: '/details',
+      name: 'Details',
+      component: Details
     },
     {
       path: '/faqs',
@@ -42,7 +59,7 @@ const router =  new Router({
 
 
 router.beforeEach((to, from, next) => {
-  const protectedRoutes = ['/dashboard'];
+  const protectedRoutes = ['/dashboard', '/edit', '/create', '/details'];
   const loginRequired = protectedRoutes.includes(to.path);
   const loggedIn = localStorage.getItem('token');
 
