@@ -53,8 +53,16 @@
         ></b-form-input>
       </b-input-group-append>
       <div class="mt-4 text-center">
-        <b-button type="submit" variant="primary">Sign up</b-button>
-        <b-button @click="login" variant="danger">Login</b-button>
+        <b-button
+          type="submit"
+          variant="outline-info"
+          pill
+        >Sign up</b-button>
+        <b-button 
+          @click="login"
+          variant="outline-info"
+          pill
+        >Login</b-button>
       </div>
     </b-form>
   </div>

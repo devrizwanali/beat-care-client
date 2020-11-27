@@ -27,4 +27,13 @@ body {
   width: 50%;
   margin: auto;
 }
+button {
+  color: #3c4d69 !important;
+  border-color: #3c4d69 !important;
+}
+button:hover {
+  color: white !important;
+  background: #3c4d69 !important;
+  font-weight: bold;
+}
 </style>

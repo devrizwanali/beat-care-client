@@ -1,10 +1,15 @@
 <template>
-  <div class="mt-4" style="text-align: center; cursor: pointer;">
+  <div class="mt-4 text-center" style="cursor: pointer;">
     <b-card  calss="card" style="">
       <b-card-text class="text-justify">
-      Heart rate or heartbeat is an important measure in health and fitness. BeatCare is developed to monitor one’s heart movements. The only thing needed is the monitoring of one’s pulse rates through an electrocardiogram device that is attached to the region around the heart. The application is able to record the users pulse rates and thereof the user is able to record notes. The user can record his heartbeat while at rest, while walking/exercising, and before receiving medication.
+      Heart rate or heart beat is an important measure in health and fitness. BeatCare is developed to monitor one’s heart movements. The only thing needed is the monitoring of one’s pulse rates through an electrocardiogram device that is attached to the region around the heart. The application is able to record the users pulse rates and thereof the user is able to record notes. The user can record his heartbeat while at rest, while walking/exercising, and before receiving medication.
       </b-card-text>
-      <b-button class="create-account" @click="createAccount">Create account</b-button>
+      <b-button 
+        class="create-account"
+        @click="createAccount"
+        pill
+        varient="outline-info"
+      >Create account</b-button>
     </b-card>
   </div>
 </template>
@@ -21,13 +26,12 @@
 <style scoped>
 .create-account{
   float: right;
-  color: #ccc;
-  font-weight: bold;
+  color: white !important;
   background: #3c4d69;
 }
 .create-account:hover {
   background: #3c4d69;
-  color: white;
+  font-weight: bold
 }
 .card {
   transition: box-shadow .3s;
