@@ -8,6 +8,7 @@ import Dashboard from '@/components/TheDashboard'
 import Create from '@/components/CreateBeatRate'
 import Edit from '@/components/EditBeatRate'
 import Details from '@/components/DetailsBeatRate'
+import Graph from '@/components/BeatRateGraph'
 
 Vue.use(Router)
 
@@ -39,12 +40,12 @@ const router =  new Router({
       component: Create
     },
     {
-      path: '/edit',
+      path: '/edit/:id',
       name: 'Edit',
       component: Edit
     },
     {
-      path: '/details',
+      path: '/details/:id',
       name: 'Details',
       component: Details
     },
@@ -52,6 +53,11 @@ const router =  new Router({
       path: '/faqs',
       name: 'FAQs',
       component: FAQs
+    },
+    {
+      path: '/graph',
+      name: 'Graph',
+      component: Graph
     }
   ],
   mode: 'history'
@@ -59,7 +65,7 @@ const router =  new Router({
 
 
 router.beforeEach((to, from, next) => {
-  const protectedRoutes = ['/dashboard', '/edit', '/create', '/details'];
+  const protectedRoutes = ['/dashboard', '/edit', '/create', '/details', '/graph'];
   const loginRequired = protectedRoutes.includes(to.path);
   const loggedIn = localStorage.getItem('token');
 

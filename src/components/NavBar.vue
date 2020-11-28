@@ -6,9 +6,9 @@
       <b-navbar-nav class="ml-auto">
         <li class="nav-item" v-if="isLoggedIn">
           <router-link
-            :to="{ name: 'FAQs' }"
+            :to="{ name: 'Graph' }"
             class="heading nav-link"
-          >Report</router-link>
+          >Graph</router-link>
         </li>
         <li class="nav-item" v-if="isLoggedIn">
           <router-link 

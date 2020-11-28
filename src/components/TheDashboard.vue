@@ -7,20 +7,20 @@
         <thead>
           <tr>
             <th>Date</th>
-            <th>Beat rate</th>
             <th>Note</th>
+            <th>Beat rate</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
+          <tr v-for="beat in beatRates">
+            <td>{{beat.createdAt}}</td>
+            <td>{{beat.note}}</td>
+            <td>{{beat.beatRate}}</td>
             <td class="d-flex justify-content-around">
-              <b-icon icon="eye" v-b-tooltip.hover title="Details" @click="show"></b-icon>
-              <b-icon icon="pencil-square" v-b-tooltip.hover title="Edit" @click="edit"></b-icon>
-              <b-icon icon="trash" v-b-tooltip.hover title="Delete"></b-icon>
+              <b-icon icon="eye" v-b-tooltip.hover title="Details" @click="show(beat._id)"></b-icon>
+              <b-icon icon="pencil-square" v-b-tooltip.hover title="Edit" @click="edit(beat._id)"></b-icon>
+              <b-icon icon="trash" v-b-tooltip.hover title="Delete" @click="Delete(beat._id)"></b-icon>
             </td>
           </tr>
         </tbody>
@@ -29,20 +29,32 @@
   </b-container>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex';
 export default {
-  data() {
-    return {
-    }
+  computed: {
+    ...mapGetters(['beatRates'])
+  },
+  mounted() {
+    this.$store.dispatch('fetchBeatRates')
   },
   methods: {
+    ...mapActions(['deleteBeatRate']),
     create() {
       this.$router.push({ name: 'Create' })
     },
-    edit() {
-      this.$router.push({ name: 'Edit' })
+    edit(id) {
+      this.$router.push({ name: 'Edit', params: { id: id }})
     },
-    show() {
-      this.$router.push({ name: 'Details'})
+    show(id) {
+      this.$router.push({ name: 'Details', params: { id: id }})
+    },
+    Delete(id) {
+      this.deleteBeatRate(id).then(res => {
+        alert('Successfully deleted!')
+      })
+      .catch(error => {
+        alert('Something went wrong!')
+      })
     }
   }
 };
