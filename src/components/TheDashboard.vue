@@ -8,12 +8,12 @@
           <tr>
             <th>Date</th>
             <th>Note</th>
-            <th>Beat rate</th>
+            <th>Beat rate(BPM)</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="beat in beatRates">
+          <tr v-for="beat in beatRates" :class="beat.beatRate > 60 ? '': 'danger'">
             <td>{{beat.createdAt}}</td>
             <td>{{beat.note}}</td>
             <td>{{beat.beatRate}}</td>
@@ -72,5 +72,8 @@ button:hover {
   color: white !important;
   background: #3c4d69 !important;
   font-weight: bold;
+}
+.danger {
+  background-color: #ff000085;
 }
 </style>

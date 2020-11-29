@@ -11,7 +11,7 @@
           v-model="beatRate.beatRate"
           type="number"
           required
-          placeholder="112"
+          placeholder="112 BPM"
         ></b-form-input>
       </b-form-group>
 
@@ -44,7 +44,7 @@
 </template>
 <script>
   export default {
-    name: 'Form', 
+    name: 'BeatRateForm', 
     props: {
       beatRate: {
         type: Object,
