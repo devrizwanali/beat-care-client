@@ -1,7 +1,7 @@
 import http from '@/config/http';
 
 const state = {
-  token: localStorage.getItem('token'),
+  token: null,
   user: null,
 };
 
@@ -24,7 +24,7 @@ const actions = {
   register({ commit }, user) {
     const promise = http.post('/register', user).then(res => {
       localStorage.setItem('token', res.data.token);
-      commit('REGISTER_USER', res.data);
+      commit('REGISTER_USER', res);
     })
     return promise
   },
@@ -45,7 +45,7 @@ const actions = {
 
 const getters = {
   user: state => state.user,
-  isLoggedIn: state => state.token
+  isLoggedIn: state => state.token || localStorage.getItem('token')
 };
 
 export default {

@@ -50,7 +50,9 @@ export default {
     },
     Delete(id) {
       this.deleteBeatRate(id).then(res => {
-        alert('Successfully deleted!')
+       setTimeout(function() {
+         alert('Successfully deleted!')
+       }, 300)
       })
       .catch(error => {
         alert('Something went wrong!')

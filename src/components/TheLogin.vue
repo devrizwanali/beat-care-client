@@ -10,7 +10,7 @@
         ></b-icon>
         <b-form-input
           class="pl-5"
-          id="input-1"
+          id="email"
           v-model="user.email"
           type="email"
           required
@@ -26,7 +26,7 @@
         ></b-icon>
         <b-form-input
           class="pl-5"
-          id="input-1"
+          id="password"
           v-model="user.password"
           type="password"
           required

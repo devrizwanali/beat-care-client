@@ -3,6 +3,9 @@
     <h3 class="text-center">Beat Rate grpah</h3>
     <line-chart :beats="beats" :labels="labels" :height="100"/>
   </div>
+  <div v-else>
+    <h2 class="text-center mt-5">There is no record. Please create from dashboard.</h2>
+  </div>
 </template>
 <script>
   import LineChart from './TheLineChart'
